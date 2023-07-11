@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:latest
+    container_name: client
+    environment:
+      POSTGRES_DB: clients
+      POSTGRES_USER: dmitrij
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
